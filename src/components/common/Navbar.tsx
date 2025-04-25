@@ -16,17 +16,20 @@ import Link from "next/link";
 import React from "react";
 import { Button } from "../ui/button";
 import { ModeToggle } from "./ModeToggle";
+import { SidebarTrigger } from "../ui/sidebar";
 
 function Navbar() {
   const { setTheme } = useTheme();
   return (
-    <nav className="p-4 flex items-center justify-between">
+    <nav className="p-2 flex items-center justify-between">
       {/* LEFT side  */}
-      <div className="nav-left-side">btn</div>
+      <div className="nav-left-side">
+      <SidebarTrigger />
+      </div>
 
       {/* RIGHT side  */}
       <div className="nav-right-side flex items-center justify-center gap-4">
-        <Link href="/">Dashboard</Link>
+        {/* <Link href="/">Dashboard</Link> */}
         {/* Theme Mode toggle start */}
         <ModeToggle />
         {/* Theme Mode toggle end */}

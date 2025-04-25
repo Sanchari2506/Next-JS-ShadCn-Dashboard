@@ -40,7 +40,6 @@ export default function RootLayout({
           <SidebarProvider defaultOpen={true}>
             <AppSideBar />
             <main className="main-container w-full">
-              <SidebarTrigger />
               <Navbar />
               <div className="main-content px-4">{children}</div>
             </main>
