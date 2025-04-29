@@ -1,7 +1,7 @@
 "use client"
 
 import { TrendingUp } from "lucide-react"
-import { Bar, BarChart, CartesianGrid, XAxis } from "recharts"
+import { Bar, BarChart, CartesianGrid, XAxis, YAxis } from "recharts"
 
 import {
   Card,
@@ -14,6 +14,8 @@ import {
 import {
   ChartConfig,
   ChartContainer,
+  ChartLegend,
+  ChartLegendContent,
   ChartTooltip,
   ChartTooltipContent,
 } from "@/components/ui/chart"
@@ -29,11 +31,11 @@ const chartData = [
 const chartConfig = {
   desktop: {
     label: "Desktop",
-    color: "#e6e5e5",
+    color: "#2563eb",
   },
   mobile: {
     label: "Mobile",
-    color: "#bbbbbc",
+    color: "#60a5fa",
   },
 } satisfies ChartConfig
 
@@ -41,8 +43,8 @@ export function CustomChart() {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Bar Chart - Multiple</CardTitle>
-        <CardDescription>January - June 2024</CardDescription>
+        <CardTitle>Total Revenue</CardTitle>
+        {/* <CardDescription>January - June 2024</CardDescription> */}
       </CardHeader>
       <CardContent>
         <ChartContainer config={chartConfig}>
@@ -55,22 +57,23 @@ export function CustomChart() {
               axisLine={false}
               tickFormatter={(value) => value.slice(0, 3)}
             />
+            <YAxis
+              tickLine={false}
+              tickMargin={10}
+              axisLine={false}
+            />
             <ChartTooltip
               cursor={false}
               content={<ChartTooltipContent indicator="dashed" />}
             />
+            <ChartLegend content={<ChartLegendContent />} />
             <Bar dataKey="desktop" fill="var(--color-desktop)" radius={4} />
             <Bar dataKey="mobile" fill="var(--color-mobile)" radius={4} />
           </BarChart>
         </ChartContainer>
       </CardContent>
       <CardFooter className="flex-col items-start gap-2 text-sm">
-        <div className="flex gap-2 font-medium leading-none">
-          Trending up by 5.2% this month <TrendingUp className="h-4 w-4" />
-        </div>
-        <div className="leading-none text-muted-foreground">
-          Showing total visitors for the last 6 months
-        </div>
+        
       </CardFooter>
     </Card>
   )
