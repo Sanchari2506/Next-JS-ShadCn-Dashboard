@@ -27,7 +27,7 @@ function TodoList() {
           <Calendar
             mode="single"
             selected={date}
-            onSelect={setDate}
+            onSelect={()=>{}}
             className="rounded-md border"
           />
         </PopoverContent>
